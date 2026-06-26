@@ -1,4 +1,4 @@
-# levante
+# levante-r
 
 R package for accessing LEVANTE data. Some useful links:  
 - [An overview of the LEVANTE project](https://researcher.levante-network.org/overview).  
