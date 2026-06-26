@@ -1,0 +1,9 @@
+pandoc: 3.8.3
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  levante_walkthrough: levante_walkthrough.html
+last_built: 2026-06-26T21:49Z
+urls:
+  reference: https://levante-framework.github.io/levante-r/reference
+  article: https://levante-framework.github.io/levante-r/articles
