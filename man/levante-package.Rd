@@ -4,12 +4,29 @@
 \name{levante-package}
 \alias{levante}
 \alias{levante-package}
-\title{levante: Data access for the LEVANTE data repository}
+\title{levante: Download LEVANTE Data}
 \description{
-What the package does (one paragraph).
+Download data from LEVANTE, a global project for studying child development.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://levante-framework.github.io/levante-r/}
+}
+
 }
 \author{
-\strong{Maintainer}: Mika Braginsky \email{mika.br@gmail.com}
+\strong{Maintainer}: Mika Braginsky \email{mika.br@gmail.com} (\href{https://orcid.org/0000-0001-9039-3220}{ORCID})
+
+Authors:
+\itemize{
+  \item Michael Frank \email{mcfrank@stanford.edu} (\href{https://orcid.org/0000-0002-7551-4378}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Theresa Cheng \email{twcheng@stanford.edu} (\href{https://orcid.org/0000-0002-8557-565X}{ORCID}) [contributor]
+}
 
 }
 \keyword{internal}
