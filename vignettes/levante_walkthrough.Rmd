@@ -2,7 +2,7 @@
 title: "levante package walkthrough"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{levante_walkthrough}
+  %\VignetteIndexEntry{levante package walkthrough}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -51,13 +51,13 @@ Then, use `get_participants()` to obtain child participant ids, approximate birt
 participants <- get_participants(data_source = "levante-data-example:d0rt", version = "current") 
 
 # Now let's do some preliminary checks on the participants data
-participants |> count(site, sort = TRUE) # returns the number of participants from each site — the levante-data-example and private site data releases only contain data from a single site, but the public data releases contain many sites/datasets stapled together
+participants |> count(dataset, sort = TRUE) # returns the number of participants from each dataset — the levante-data-example and private dataset data releases only contain data from a single dataset, but the public data releases contain multiple datasets stapled together
 ```
 
 Use `get_scores()` to obtain scored cognitive task data. 
 ```{r}
 # Pull scored data from Redivis and save it to a data frame called "scores"
-scores <- get_scores(data_source = "levante-data-example:d0rt", version = "current") 
+scores <- get_scores(data_source = "levante-data-example:d0rt", version = "current")
 
 # Now let's do some preliminary checks on the scores data
 scores |> count(task_id, sort = TRUE) # returns the number of scores for each task. for a list of item_task abbreviations, see Table 1 here: https://researcher.levante-network.org/measures/direct-child-measures
@@ -77,7 +77,7 @@ Use `get_trials()` to access trial-level data.
 trials <- get_trials(data_source = "levante-data-example:d0rt", version = "current") 
 
 # Now let's do some preliminary checks on the trials data
-trials |> count(site, sort = TRUE) # returns the number of trials per site
+trials |> count(dataset, sort = TRUE) # returns the number of trials per dataset
 
 trials |> count(task_id, sort = TRUE) # returns the number of trials per task
 ```
@@ -88,15 +88,15 @@ Use `get_surveys()` to access item-level survey data.
 surveys <- get_surveys(data_source = "levante-data-example:d0rt", version = "current") 
 
 # Now let's do some preliminary checks on the trials data
-surveys |> count(site, sort = TRUE) # returns the number of surveys per site
+surveys |> count(dataset, sort = TRUE) # returns the number of surveys per dataset
 ```
 
-Use `get_item_parameters()` to access the IRT item parameters used in LEVANTE scoring.
+Use `get_parameters()` to access the IRT item parameters used in LEVANTE scoring.
 ```{r}
 # Pull up-to-date item parameters from Redivis
-item_parameters <- get_item_parameters()
+item_parameters <- get_parameters(data_source = "levante-data-example:d0rt", version = "current")
 
-item_parameters |> count(item_task, sort = TRUE) # returns the number of parameters per task
+item_parameters |> count(task_id, sort = TRUE) # returns the number of parameters per task
 ```
 
 Finally, researchers accessing their own LEVANTE data can use `get_raw_data()` to access additional tables within private datasets. `get_raw_data()` is a general function that can pull any table that you specify, provided that the table exists. When pulling raw data, please note that some of the table names are different than the processed data. Check your dataset page to ensure that the table exists. 
