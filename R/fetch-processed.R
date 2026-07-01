@@ -60,3 +60,17 @@ get_trials <- function(data_source, version = "current") {
   get_datasets_data(dataset_spec, table_getter("trials"))
 }
 
+#' Get item parameters
+#'
+#' `get_parameters()` returns information about the item IRT parameters that were used for creating scores. See the [rlevante documentation](https://levante-framework.github.io/rlevante/index.html) for more information about how to access LEVANTE datasets and codebooks.
+#' @inheritParams get_participants
+#' @returns A data frame where each row is an item
+#' @export
+#' @examples
+#' \dontrun{
+#' parameters <- get_parameters(data_source = "levante_data_example:d0rt", version = "current")
+#' }
+get_parameters <- function(data_source, version = "current") {
+  dataset_spec <- list(list(name = data_source, version = version))
+  get_datasets_data(dataset_spec, table_getter("parameters"))
+}
