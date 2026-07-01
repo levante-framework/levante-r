@@ -94,7 +94,7 @@ runs.
 
 ## All functions
 
-- [`get_item_parameters()`](https://levante-framework.github.io/levante-r/reference/get_item_parameters.md)
+- [`get_parameters()`](https://levante-framework.github.io/levante-r/reference/get_parameters.md)
   : Get item parameters
 - [`get_participants()`](https://levante-framework.github.io/levante-r/reference/get_participants.md)
   : Get participants

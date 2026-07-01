@@ -70,11 +70,11 @@ participants <- get_participants(data_source = "levante-data-example:d0rt", vers
 #> --Fetching table participants
 
 # Now let's do some preliminary checks on the participants data
-participants |> count(site, sort = TRUE) # returns the number of participants from each site — the levante-data-example and private site data releases only contain data from a single site, but the public data releases contain many sites/datasets stapled together
+participants |> count(dataset, sort = TRUE) # returns the number of participants from each dataset — the levante-data-example and private dataset data releases only contain data from a single dataset, but the public data releases contain multiple datasets stapled together
 #> # A tibble: 1 × 2
-#>   site                n
-#>   <chr>           <int>
-#> 1 pilot_mpieva_de    15
+#>   dataset                  n
+#>   <chr>                <int>
+#> 1 pilot_mpieva_de_main    15
 ```
 
 Use
@@ -84,7 +84,7 @@ to obtain scored cognitive task data.
 ``` r
 
 # Pull scored data from Redivis and save it to a data frame called "scores"
-scores <- get_scores(data_source = "levante-data-example:d0rt", version = "current") 
+scores <- get_scores(data_source = "levante-data-example:d0rt", version = "current")
 #> Fetching data for levante-data-example:d0rt
 #> --Fetching table scores
 
@@ -112,6 +112,8 @@ scores |> count(task_id, sort = TRUE) # returns the number of scores for each ta
 ggplot(scores, aes(x = age, y = score)) +
   facet_wrap(vars(task_id)) +
   geom_point()
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_point()`).
 ```
 
 ![](levante_walkthrough_files/figure-html/unnamed-chunk-4-1.png)
@@ -129,11 +131,11 @@ trials <- get_trials(data_source = "levante-data-example:d0rt", version = "curre
 #> --Fetching table trials
 
 # Now let's do some preliminary checks on the trials data
-trials |> count(site, sort = TRUE) # returns the number of trials per site
+trials |> count(dataset, sort = TRUE) # returns the number of trials per dataset
 #> # A tibble: 1 × 2
-#>   site                n
-#>   <chr>           <int>
-#> 1 pilot_mpieva_de  1320
+#>   dataset                  n
+#>   <chr>                <int>
+#> 1 pilot_mpieva_de_main  1323
 
 trials |> count(task_id, sort = TRUE) # returns the number of trials per task
 #> # A tibble: 11 × 2
@@ -142,9 +144,9 @@ trials |> count(task_id, sort = TRUE) # returns the number of trials per task
 #>  1 vocab                      242
 #>  2 hearts-and-flowers         236
 #>  3 trog                       153
-#>  4 egma-math                  124
+#>  4 egma-math                  125
 #>  5 swr                        120
-#>  6 matrix-reasoning           106
+#>  6 matrix-reasoning           108
 #>  7 theory-of-mind             102
 #>  8 same-different-selection    85
 #>  9 mental-rotation             68
@@ -164,38 +166,39 @@ surveys <- get_surveys(data_source = "levante-data-example:d0rt", version = "cur
 #> --Fetching table surveys
 
 # Now let's do some preliminary checks on the trials data
-surveys |> count(site, sort = TRUE) # returns the number of surveys per site
+surveys |> count(dataset, sort = TRUE) # returns the number of surveys per dataset
 #> # A tibble: 1 × 2
-#>   site                n
-#>   <chr>           <int>
-#> 1 pilot_mpieva_de    69
+#>   dataset                  n
+#>   <chr>                <int>
+#> 1 pilot_mpieva_de_main    63
 ```
 
 Use
-[`get_item_parameters()`](https://levante-framework.github.io/levante-r/reference/get_item_parameters.md)
+[`get_parameters()`](https://levante-framework.github.io/levante-r/reference/get_parameters.md)
 to access the IRT item parameters used in LEVANTE scoring.
 
 ``` r
 
 # Pull up-to-date item parameters from Redivis
-item_parameters <- get_item_parameters()
-#> Fetching item parameters
+item_parameters <- get_parameters(data_source = "levante-data-example:d0rt", version = "current")
+#> Fetching data for levante-data-example:d0rt
+#> --Fetching table parameters
 
-item_parameters |> count(item_task, sort = TRUE) # returns the number of parameters per task
+item_parameters |> count(task_id, sort = TRUE) # returns the number of parameters per task
 #> # A tibble: 11 × 2
-#>    item_task     n
-#>    <chr>     <int>
-#>  1 swr        1383
-#>  2 vocab       470
-#>  3 math        359
-#>  4 tom         171
-#>  5 matrix      153
-#>  6 pa          110
-#>  7 trog         99
-#>  8 mg           24
-#>  9 sds          17
-#> 10 mrot         12
-#> 11 hf           10
+#>    task_id                      n
+#>    <chr>                    <int>
+#>  1 swr                       2776
+#>  2 vocab                      912
+#>  3 egma-math                  718
+#>  4 theory-of-mind             398
+#>  5 matrix-reasoning           302
+#>  6 pa                         220
+#>  7 trog                       194
+#>  8 memory-game                 48
+#>  9 mental-rotation             40
+#> 10 same-different-selection    30
+#> 11 hearts-and-flowers          20
 ```
 
 Finally, researchers accessing their own LEVANTE data can use
