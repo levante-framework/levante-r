@@ -216,25 +216,18 @@ administrations <- get_raw_table(table_name = "administrations", data_source =  
 #> --Fetching table administrations
 
 administrations |> count(public_name, sort = TRUE) # returns the number of completions per assignment, based on that assignment's name
-#> # A tibble: 18 × 2
+#> # A tibble: 46 × 2
 #>    public_name                     n
 #>    <chr>                       <int>
-#>  1 Paket 1                         2
-#>  2 Paket 3                         2
-#>  3 Group3_Roar                     1
-#>  4 Group3_noR                      1
-#>  5 Paket 2 Group 2                 1
-#>  6 Paket 4 (kein Sprachtest)       1
-#>  7 Paket 4 (mit Sprachtest)        1
-#>  8 Paket 4 (mit Sprachtest) G2     1
-#>  9 Paket2                          1
-#> 10 Retest_G1&2_Roar                1
-#> 11 Retest_G3                       1
-#> 12 Retest_G3_R                     1
-#> 13 Retest_Group1                   1
-#> 14 Runde 1 (Nov 2025)              1
-#> 15 Runde 2 (Januar 2026)           1
-#> 16 Test_Group4_2                   1
-#> 17 Test_Group4_TP1                 1
-#> 18 Test_Survey_0825                1
+#>  1 Survey                         11
+#>  2 Caregiver Survey               10
+#>  3 Older Children (8+)             8
+#>  4 Children Under 8                7
+#>  5 Children 8+                     6
+#>  6 Parent Survey                   6
+#>  7 Younger Children (Under 8)      6
+#>  8 .                               2
+#>  9 Test                            2
+#> 10 Younger Children (Under 8).     2
+#> # ℹ 36 more rows
 ```
