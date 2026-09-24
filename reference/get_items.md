@@ -1,14 +1,14 @@
-# Get trials
+# Get item parameters
 
-`get_trials()` returns information about each trial as a data frame. See
-the [levante-r
+`get_items()` returns information about the item IRT parameters that
+were used for creating scores. See the [levante-r
 documentation](https://levante-framework.github.io/levante-r/index.html)
 for more information about how to access LEVANTE datasets and codebooks.
 
 ## Usage
 
 ``` r
-get_trials(data_source, version = "current")
+get_items(data_source, version = "current")
 ```
 
 ## Arguments
@@ -23,12 +23,12 @@ get_trials(data_source, version = "current")
 
 ## Value
 
-A data frame where each row is a trial.
+A data frame where each row is an item.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-trials <- get_trials(data_source = "levante_data_example:d0rt", version = "current")
+items <- get_items(data_source = "levante_data_example:d0rt", version = "current")
 } # }
 ```

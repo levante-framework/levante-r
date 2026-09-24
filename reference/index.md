@@ -2,7 +2,7 @@
 
 ## All functions
 
-- [`get_parameters()`](https://levante-framework.github.io/levante-r/reference/get_parameters.md)
+- [`get_items()`](https://levante-framework.github.io/levante-r/reference/get_items.md)
   : Get item parameters
 - [`get_participants()`](https://levante-framework.github.io/levante-r/reference/get_participants.md)
   : Get participants
@@ -14,3 +14,5 @@
   : Get surveys
 - [`get_trials()`](https://levante-framework.github.io/levante-r/reference/get_trials.md)
   : Get trials
+- [`get_variables()`](https://levante-framework.github.io/levante-r/reference/get_variables.md)
+  : Get variable metadata

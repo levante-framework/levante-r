@@ -1,8 +1,8 @@
 # Get scores
 
 `get_scores()` returns information about scores as a data frame. See the
-[rlevante
-documentation](https://levante-framework.github.io/rlevante/index.html)
+[levante-r
+documentation](https://levante-framework.github.io/levante-r/index.html)
 for more information about how to access LEVANTE datasets and codebooks.
 
 ## Usage

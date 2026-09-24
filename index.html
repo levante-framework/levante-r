@@ -6,9 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Download LEVANTE Data • levante</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Download LEVANTE Data">
 <meta name="description" content="Download data from LEVANTE, a global project for studying child development.">
@@ -18,11 +19,11 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">levante</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +44,14 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -53,12 +62,23 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="levante-r">levante-r<a class="anchor" aria-label="anchor" href="#levante-r"></a>
 </h1></div>
-<p>R package for accessing LEVANTE data. Some useful links:<br>
-- <a href="https://researcher.levante-network.org/overview" class="external-link">An overview of the LEVANTE project</a>.<br>
-- <a href="https://researcher.levante-network.org/measures/scoring-and-psychometrics" class="external-link">Details about LEVANTE’s scoring and psychometrics</a>.<br>
-- <a href="https://researcher.levante-network.org/measures/direct-child-measures" class="external-link">Details about the LEVANTE child tasks</a>.<br>
-- <a href="https://researcher.levante-network.org/data" class="external-link">How to access the LEVANTE data.</a> Prior to completing the steps described at this link, you only have access to an example dataset with toy data.<br>
-- <a href="https://researcher.levante-network.org/data-overview" class="external-link">Data browser.</a> You can browse scored and trial level task public data using our data browser. If you are a partner with access to additional datasets on Redivis, you will also be able to load and browse those datasets on the data browser.</p>
+<p>R package for accessing LEVANTE data. Some useful links:</p>
+<ul>
+<li>
+<a href="https://researcher.levante-network.org/overview" class="external-link">An overview of the LEVANTE project</a>.<br>
+</li>
+<li>
+<a href="https://researcher.levante-network.org/measures/scoring-and-psychometrics" class="external-link">Details about LEVANTE’s scoring and psychometrics</a>.<br>
+</li>
+<li>
+<a href="https://researcher.levante-network.org/measures/direct-child-measures" class="external-link">Details about the LEVANTE child tasks</a>.<br>
+</li>
+<li>
+<a href="https://researcher.levante-network.org/data" class="external-link">How to access the LEVANTE data.</a> Prior to completing the steps described at this link, you only have access to an example dataset with toy data.<br>
+</li>
+<li>
+<a href="https://levante-framework.github.io/levante-datapage" class="external-link">Data browser.</a> You can browse scored and trial level task public data using our data browser. If you are a partner with access to additional datasets on Redivis, you will also be able to load and browse those datasets on the data browser.</li>
+</ul>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -119,7 +139,7 @@
 <ul class="list-unstyled">
 <li>Michael Frank <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7551-4378" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>Mika Braginsky <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-9039-3220" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
-<li><a href="authors.html">More about authors...</a></li>
+<li>Theresa Cheng <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-8557-565X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -130,7 +150,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Michael Frank, Mika Braginsky.</p>
+  <p>Developed by Michael Frank, Mika Braginsky, Theresa Cheng.</p>
 </div>
 
 <div class="pkgdown-footer-right">

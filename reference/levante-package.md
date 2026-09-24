@@ -19,7 +19,5 @@ Authors:
 - Michael Frank <mcfrank@stanford.edu>
   ([ORCID](https://orcid.org/0000-0002-7551-4378))
 
-Other contributors:
-
 - Theresa Cheng <twcheng@stanford.edu>
-  ([ORCID](https://orcid.org/0000-0002-8557-565X)) \[contributor\]
+  ([ORCID](https://orcid.org/0000-0002-8557-565X))

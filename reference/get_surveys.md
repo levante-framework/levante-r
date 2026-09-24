@@ -1,8 +1,8 @@
 # Get surveys
 
 `get_surveys()` returns information about survey responses as a data
-frame. See the [rlevante
-documentation](https://levante-framework.github.io/rlevante/index.html)
+frame. See the [levante-r
+documentation](https://levante-framework.github.io/levante-r/index.html)
 for more information about how to access LEVANTE datasets and codebooks.
 
 ## Usage
