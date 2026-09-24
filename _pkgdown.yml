@@ -9,5 +9,3 @@ template:
     heading_font: whitney-book
     code_font: {google: "Fira Code"}
     primary: "#1ca0f1"
-includes:
-  in_header: <link rel="stylesheet" type="text/css" href="pkgdown/scss/theme.scss" />
