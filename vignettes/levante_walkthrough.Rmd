@@ -9,6 +9,7 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  warning = FALSE,
   collapse = TRUE,
   comment = "#>"
 )
@@ -27,16 +28,20 @@ Permission to access the data is granted via [Redivis](https://redivis.com/), a 
 | Name         | Description                                                                                                                           | Additional information                                                                               |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | participants | Information about child participants, where each row is a child participant.                                                          |  |
-| scores       | Information about task ability scores across participants and tasks, where each row is a single score.                                | - [Overview of tasks](https://researcher.levante-network.org/measures/direct-child-measures)  <br> - [Guidelines for interpreting scores and details about scoring methods](https://researcher.levante-network.org/measures/scoring-and-psychometrics) |
-| surveys      | Information about survey responses across participants and surveys, where each row is a single survey item response.                  | - [Child survey info](https://researcher.levante-network.org/measures/direct-child-measures/attitudes/thoughts-feelings) <br> -  [Caregiver survey info](https://researcher.levante-network.org/measures/caregiver-surveys) <br> - [Teacher survey info](https://researcher.levante-network.org/measures/teacher-survey)                                        |
-| trials       | Information about trial level task responses across participants, tasks, and trials, where each row is a single trial-level response. | - [Overview of tasks](https://researcher.levante-network.org/measures/direct-child-measures)                                                                       |. 
+| scores       | Information about task ability scores across participants and tasks, where each row is a single score.                                | -- [Overview of tasks](https://researcher.levante-network.org/measures/direct-child-measures)  <br> -- [Guidelines for interpreting scores and details about scoring methods](https://researcher.levante-network.org/measures/scoring-and-psychometrics) |
+| surveys      | Information about survey responses across participants and surveys, where each row is a single survey item response.                  | -- [Child survey info](https://researcher.levante-network.org/measures/direct-child-measures/attitudes/thoughts-feelings) <br> --  [Caregiver survey info](https://researcher.levante-network.org/measures/caregiver-surveys) <br> -- [Teacher survey info](https://researcher.levante-network.org/measures/teacher-survey)                                        |
+| trials       | Information about trial level task responses across participants, tasks, and trials, where each row is a single trial-level response. | -- [Overview of tasks](https://researcher.levante-network.org/measures/direct-child-measures)                                                                       |
+| items        | Information about items (in the sense of units of analysis for IRT models) included in the tasks, where each row is a single item response. | -- [Details on how items are defined](https://researcher.levante-network.org)                                                                       |
 
 ## Using the `levante` package to load LEVANTE data
 Each table from Redivis can be read into R as a data frame using a specific `levante` `get_()` function. Each `get_()` function takes at least two arguments, including a dataset name (required) and version number (defaults to the current version unless otherwise specified). 
 
 First, load `levante` and other packages, as needed.
-```{r setup}
+```{r setup-levante}
 library(levante)
+```
+
+```{r setup-other, message=FALSE}
 library(dplyr)
 library(ggplot2)
 theme_set(theme_classic())
@@ -64,7 +69,7 @@ scores |> count(task_id, sort = TRUE) # returns the number of scores for each ta
 ```
 
 ```{r}
-# This plot returns scores by age fro each task.
+# This plot returns scores by age for each task.
 ggplot(scores, aes(x = age, y = score)) +
   facet_wrap(vars(task_id)) +
   geom_point()
@@ -91,12 +96,20 @@ surveys <- get_surveys(data_source = "levante-data-example:d0rt", version = "cur
 surveys |> count(dataset, sort = TRUE) # returns the number of surveys per dataset
 ```
 
-Use `get_parameters()` to access the IRT item parameters used in LEVANTE scoring.
+Use `get_items()` to access the IRT item parameters used in LEVANTE scoring.
 ```{r}
 # Pull up-to-date item parameters from Redivis
-item_parameters <- get_parameters(data_source = "levante-data-example:d0rt", version = "current")
+items <- get_items(data_source = "levante-data-example:d0rt", version = "current")
 
-item_parameters |> count(task_id, sort = TRUE) # returns the number of parameters per task
+items |> count(task_id, sort = TRUE) # returns the number of items per task
+```
+
+Use `get_variables()` to access metadata on the variables in the dataset.
+```{r}
+# Pull variable metadata from Redivis
+variables <- get_variables(data_source = "levante_data_example:d0rt", version = "current")
+
+variables |> count(table, sort = TRUE) # returns the number of variables per table
 ```
 
 Finally, researchers accessing their own LEVANTE data can use `get_raw_data()` to access additional tables within private datasets. `get_raw_data()` is a general function that can pull any table that you specify, provided that the table exists. When pulling raw data, please note that some of the table names are different than the processed data. Check your dataset page to ensure that the table exists. 

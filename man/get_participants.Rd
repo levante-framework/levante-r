@@ -12,10 +12,13 @@ get_participants(data_source, version = "current")
 \item{version}{Version of Redivis dataset}
 }
 \value{
-A data frame where each row contains information about a child participant.
+A data frame where each row contains information about a child
+participant.
 }
 \description{
-\code{get_participants()} returns information about participants as a data frame. See the \href{https://levante-framework.github.io/rlevante/index.html}{rlevante documentation} for more information about how to access LEVANTE datasets and codebooks.
+\code{get_participants()} returns information about participants as a data frame.
+See the \href{https://levante-framework.github.io/levante-r/index.html}{levante-r documentation} for
+more information about how to access LEVANTE datasets and codebooks.
 }
 \examples{
 \dontrun{

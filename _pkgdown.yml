@@ -1,4 +1,13 @@
 url: https://levante-framework.github.io/levante-r/
 template:
   bootstrap: 5
-
+  light-switch: true
+  theme: github-light
+  theme-dark: github-dark
+  bslib:
+    base_font: whitney-book
+    heading_font: whitney-book
+    code_font: {google: "Fira Code"}
+    primary: "#1ca0f1"
+includes:
+  in_header: <link rel="stylesheet" type="text/css" href="pkgdown/scss/theme.scss" />

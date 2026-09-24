@@ -1,9 +1,15 @@
 #' Get participants
 #'
-#' `get_participants()` returns information about participants as a data frame. See the [rlevante documentation](https://levante-framework.github.io/rlevante/index.html) for more information about how to access LEVANTE datasets and codebooks.
+#' `get_participants()` returns information about participants as a data frame.
+#' See the [levante-r
+#' documentation](https://levante-framework.github.io/levante-r/index.html) for
+#' more information about how to access LEVANTE datasets and codebooks.
+#' 
 #' @param data_source Name of Redivis dataset
 #' @param version Version of Redivis dataset
-#' @returns A data frame where each row contains information about a child participant.
+#' 
+#' @returns A data frame where each row contains information about a child
+#'   participant.
 #' @export
 #' @examples
 #' \dontrun{
@@ -16,9 +22,17 @@ get_participants <- function(data_source, version = "current") {
 
 #' Get scores
 #'
-#' `get_scores()` returns information about scores as a data frame. See the [rlevante documentation](https://levante-framework.github.io/rlevante/index.html) for more information about how to access LEVANTE datasets and codebooks.
+#' `get_scores()` returns information about scores as a data frame. See the
+#' [levante-r
+#' documentation](https://levante-framework.github.io/levante-r/index.html) for
+#' more information about how to access LEVANTE datasets and codebooks.
+#' 
 #' @inheritParams get_participants
-#' @returns A data frame where each row is a task ability score. See our [Scoring and Psychometrics page](https://researcher.levante-network.org/measures/scoring-and-psychometrics) to learn how to interpret scores.
+#' 
+#' @returns A data frame where each row is a task ability score. See our
+#'   [Scoring and Psychometrics
+#'   page](https://researcher.levante-network.org/measures/scoring-and-psychometrics)
+#'   to learn how to interpret scores.
 #' @export
 #' @examples
 #' \dontrun{
@@ -31,8 +45,14 @@ get_scores <- function(data_source, version = "current") {
 
 #' Get surveys
 #'
-#' `get_surveys()` returns information about survey responses as a data frame. See the [rlevante documentation](https://levante-framework.github.io/rlevante/index.html) for more information about how to access LEVANTE datasets and codebooks.
+#' `get_surveys()` returns information about survey responses as a data frame.
+#' See the [levante-r
+#' documentation](https://levante-framework.github.io/levante-r/index.html) for
+#' more information about how to access LEVANTE datasets and codebooks.
+#' 
+#' 
 #' @inheritParams get_participants
+#' 
 #' @returns A data frame where each row is a survey item response.
 #' @export
 #' @examples
@@ -46,8 +66,13 @@ get_surveys <- function(data_source, version = "current") {
 
 #' Get trials
 #'
-#' `get_trials()` returns information about each trial as a data frame. See the [rlevante documentation](https://levante-framework.github.io/rlevante/index.html) for more information about how to access LEVANTE datasets and codebooks.
+#' `get_trials()` returns information about each trial as a data frame. See the
+#' [levante-r
+#' documentation](https://levante-framework.github.io/levante-r/index.html) for
+#' more information about how to access LEVANTE datasets and codebooks.
+#' 
 #' @inheritParams get_participants
+#' 
 #' @returns A data frame where each row is a trial.
 #' @export
 #' @examples
@@ -62,15 +87,20 @@ get_trials <- function(data_source, version = "current") {
 
 #' Get item parameters
 #'
-#' `get_parameters()` returns information about the item IRT parameters that were used for creating scores. See the [rlevante documentation](https://levante-framework.github.io/rlevante/index.html) for more information about how to access LEVANTE datasets and codebooks.
+#' `get_items()` returns information about the item IRT parameters that
+#' were used for creating scores. See the [levante-r
+#' documentation](https://levante-framework.github.io/levante-r/index.html) for
+#' more information about how to access LEVANTE datasets and codebooks.
+#' 
 #' @inheritParams get_participants
-#' @returns A data frame where each row is an item
+#' 
+#' @returns A data frame where each row is an item.
 #' @export
 #' @examples
 #' \dontrun{
-#' parameters <- get_parameters(data_source = "levante_data_example:d0rt", version = "current")
+#' items <- get_items(data_source = "levante_data_example:d0rt", version = "current")
 #' }
-get_parameters <- function(data_source, version = "current") {
+get_items <- function(data_source, version = "current") {
   dataset_spec <- list(list(name = data_source, version = version))
-  get_datasets_data(dataset_spec, table_getter("parameters"))
+  get_datasets_data(dataset_spec, table_getter("items"))
 }

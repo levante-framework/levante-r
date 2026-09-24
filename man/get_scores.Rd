@@ -12,10 +12,14 @@ get_scores(data_source, version = "current")
 \item{version}{Version of Redivis dataset}
 }
 \value{
-A data frame where each row is a task ability score. See our \href{https://researcher.levante-network.org/measures/scoring-and-psychometrics}{Scoring and Psychometrics page} to learn how to interpret scores.
+A data frame where each row is a task ability score. See our
+\href{https://researcher.levante-network.org/measures/scoring-and-psychometrics}{Scoring and Psychometrics page}
+to learn how to interpret scores.
 }
 \description{
-\code{get_scores()} returns information about scores as a data frame. See the \href{https://levante-framework.github.io/rlevante/index.html}{rlevante documentation} for more information about how to access LEVANTE datasets and codebooks.
+\code{get_scores()} returns information about scores as a data frame. See the
+\href{https://levante-framework.github.io/levante-r/index.html}{levante-r documentation} for
+more information about how to access LEVANTE datasets and codebooks.
 }
 \examples{
 \dontrun{

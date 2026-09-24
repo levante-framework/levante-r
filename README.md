@@ -1,11 +1,12 @@
 # levante-r
 
-R package for accessing LEVANTE data. Some useful links:  
+R package for accessing LEVANTE data. Some useful links:
+
 - [An overview of the LEVANTE project](https://researcher.levante-network.org/overview).  
 - [Details about LEVANTE's scoring and psychometrics](https://researcher.levante-network.org/measures/scoring-and-psychometrics).  
 - [Details about the LEVANTE child tasks](https://researcher.levante-network.org/measures/direct-child-measures).  
 - [How to access the LEVANTE data.](https://researcher.levante-network.org/data) Prior to completing the steps described at this link, you only have access to an example dataset with toy data.  
-- [Data browser.](https://researcher.levante-network.org/data-overview) You can browse scored and trial level task public data using our data browser. If you are a partner with access to additional datasets on Redivis, you will also be able to load and browse those datasets on the data browser.
+- [Data browser.](https://levante-framework.github.io/levante-datapage) You can browse scored and trial level task public data using our data browser. If you are a partner with access to additional datasets on Redivis, you will also be able to load and browse those datasets on the data browser.
 
 ## Installation
 
