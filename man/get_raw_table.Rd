@@ -4,14 +4,14 @@
 \alias{get_raw_table}
 \title{Get raw table}
 \usage{
-get_raw_table(table_name, data_source, data_source_version = "current")
+get_raw_table(table_name, data_source, version = "current")
 }
 \arguments{
 \item{table_name}{String indicating name of table to get}
 
 \item{data_source}{String indicating which Redivis dataset to get}
 
-\item{data_source_version}{String indicating which version of \code{data_source} to get}
+\item{version}{String indicating which version of \code{data_source} to get}
 }
 \value{
 A data frame corresponding to the specified Redivis table.

@@ -1,3 +1,7 @@
+get_dataset_table <- \(tbl_name, ds_name, ds_version) {
+  suppressWarnings(redivis::redivis$organization("levante")$dataset(ds_name, version = ds_version)$table(tbl_name)$to_tibble())
+}
+
 #' Get participants
 #'
 #' `get_participants()` returns information about participants as a data frame.
@@ -16,8 +20,7 @@
 #' participants <- get_participants(data_source = "levante_data_example:d0rt", version = "current")
 #' }
 get_participants <- function(data_source, version = "current") {
-  dataset_spec <- list(list(name = data_source, version = version))
-  get_datasets_data(dataset_spec, table_getter("participants"))
+  get_dataset_table("participants", data_source, version)
 }
 
 #' Get scores
@@ -39,8 +42,7 @@ get_participants <- function(data_source, version = "current") {
 #' scores <- get_scores(data_source = "levante_data_example:d0rt", version = "current")
 #' }
 get_scores <- function(data_source, version = "current") {
-  dataset_spec <- list(list(name = data_source, version = version))
-  get_datasets_data(dataset_spec, table_getter("scores"))
+  get_dataset_table("scores", data_source, version)
 }
 
 #' Get surveys
@@ -60,8 +62,7 @@ get_scores <- function(data_source, version = "current") {
 #' surveys <- get_surveys(data_source = "levante_data_example:d0rt", version = "current")
 #' }
 get_surveys <- function(data_source, version = "current") {
-  dataset_spec <- list(list(name = data_source, version = version))
-  get_datasets_data(dataset_spec, table_getter("surveys"))
+  get_dataset_table("surveys", data_source, version)
 }
 
 #' Get trials
@@ -81,8 +82,7 @@ get_surveys <- function(data_source, version = "current") {
 #' }
 get_trials <- function(data_source, version = "current") {
   message("Measures adapted from the Rapid Online Assessment of Reading (Language Sounds, Sentence Reading, Word Reading) are covered under a Stanford Academic License (https://github.com/yeatmanlab/roar-mp/blob/main/LICENSE).")
-  dataset_spec <- list(list(name = data_source, version = version))
-  get_datasets_data(dataset_spec, table_getter("trials"))
+  get_dataset_table("trials", data_source, version)
 }
 
 #' Get item parameters
@@ -101,6 +101,5 @@ get_trials <- function(data_source, version = "current") {
 #' items <- get_items(data_source = "levante_data_example:d0rt", version = "current")
 #' }
 get_items <- function(data_source, version = "current") {
-  dataset_spec <- list(list(name = data_source, version = version))
-  get_datasets_data(dataset_spec, table_getter("items"))
+  get_dataset_table("items", data_source, version)
 }
