@@ -62,8 +62,6 @@ authentication.
 
 # Pull participant data from Redivis and save it to a data frame called "participants"
 participants <- get_participants(data_source = "levante-data-example:d0rt", version = "current") 
-#> Fetching data for levante-data-example:d0rt
-#> --Fetching table participants
 
 # Now let's do some preliminary checks on the participants data
 participants |> count(dataset, sort = TRUE) # returns the number of participants from each dataset — the levante-data-example and private dataset data releases only contain data from a single dataset, but the public data releases contain multiple datasets stapled together
@@ -81,8 +79,6 @@ to obtain scored cognitive task data.
 
 # Pull scored data from Redivis and save it to a data frame called "scores"
 scores <- get_scores(data_source = "levante-data-example:d0rt", version = "current")
-#> Fetching data for levante-data-example:d0rt
-#> --Fetching table scores
 
 # Now let's do some preliminary checks on the scores data
 scores |> count(task_id, sort = TRUE) # returns the number of scores for each task. for a list of item_task abbreviations, see Table 1 here: https://researcher.levante-network.org/measures/direct-child-measures
@@ -122,8 +118,6 @@ to access trial-level data.
 # Pull trial-level data from Redivis and save it to a data frame called "trials"
 trials <- get_trials(data_source = "levante-data-example:d0rt", version = "current") 
 #> Measures adapted from the Rapid Online Assessment of Reading (Language Sounds, Sentence Reading, Word Reading) are covered under a Stanford Academic License (https://github.com/yeatmanlab/roar-mp/blob/main/LICENSE).
-#> Fetching data for levante-data-example:d0rt
-#> --Fetching table trials
 
 # Now let's do some preliminary checks on the trials data
 trials |> count(dataset, sort = TRUE) # returns the number of trials per dataset
@@ -157,8 +151,6 @@ to access item-level survey data.
 
 # Pull survey data from Redivis and save it to a data frame called "surveys"
 surveys <- get_surveys(data_source = "levante-data-example:d0rt", version = "current") 
-#> Fetching data for levante-data-example:d0rt
-#> --Fetching table surveys
 
 # Now let's do some preliminary checks on the trials data
 surveys |> count(dataset, sort = TRUE) # returns the number of surveys per dataset
@@ -177,8 +169,6 @@ to access the IRT item parameters used in LEVANTE scoring.
 
 # Pull up-to-date item parameters from Redivis
 items <- get_items(data_source = "levante-data-example:d0rt", version = "current")
-#> Fetching data for levante-data-example:d0rt
-#> --Fetching table items
 
 items |> count(task_id, sort = TRUE) # returns the number of items per task
 #> # A tibble: 11 × 2
@@ -229,11 +219,9 @@ Check your dataset page to ensure that the table exists.
 
 # Pull data from any table within from Redivis – in this case, we're pulling the administrations table (each assignment is an administration)
 administrations <- get_raw_table(table_name = "administrations", data_source =  "levante-data-example-raw:bm7r") 
-#> Fetching data for levante-data-example-raw:bm7r
-#> --Fetching table administrations
 
 administrations |> count(public_name, sort = TRUE) # returns the number of completions per assignment, based on that assignment's name
-#> # A tibble: 61 × 2
+#> # A tibble: 62 × 2
 #>    public_name                          n
 #>    <chr>                            <int>
 #>  1 "Survey"                            11
@@ -246,5 +234,5 @@ administrations |> count(public_name, sort = TRUE) # returns the number of compl
 #>  8 "'survey"                            1
 #>  9 "CAT Older Children (8+)"            1
 #> 10 "CAT Younger Children (Under 8)"     1
-#> # ℹ 51 more rows
+#> # ℹ 52 more rows
 ```

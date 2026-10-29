@@ -8,7 +8,7 @@ for more information about how to access LEVANTE datasets and codebooks.
 ## Usage
 
 ``` r
-get_raw_table(table_name, data_source, data_source_version = "current")
+get_raw_table(table_name, data_source, version = "current")
 ```
 
 ## Arguments
@@ -21,7 +21,7 @@ get_raw_table(table_name, data_source, data_source_version = "current")
 
   String indicating which Redivis dataset to get
 
-- data_source_version:
+- version:
 
   String indicating which version of `data_source` to get
 
